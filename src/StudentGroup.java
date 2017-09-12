@@ -38,7 +38,14 @@ public class StudentGroup implements StudentArrayOperation {
 			{
 			throw new IllegalArgumentException();
 			}
-		
+			else
+			{
+				int l = students.length;
+				for(int i=0;i<l;i++)
+				{
+					this.students[i] = students[i];
+				}
+			}
 	}
 
 	@Override
@@ -48,7 +55,7 @@ public class StudentGroup implements StudentArrayOperation {
 		{
 			throw new IllegalArgumentException();
 		}
-		return null;
+		return students[index];
 	}
 
 	@Override
@@ -73,6 +80,8 @@ public class StudentGroup implements StudentArrayOperation {
 		{
 		throw new IllegalArgumentException();
 		}
+		
+		else{
 		int l=students.length+1;
 		Student[] temp=new Student[l];
 		int i;
@@ -87,6 +96,7 @@ public class StudentGroup implements StudentArrayOperation {
 			students[i]=temp[i];
 		}
 	}
+		}
 
 	@Override
 	public void addLast(Student student) {
@@ -95,8 +105,9 @@ public class StudentGroup implements StudentArrayOperation {
 		{
 		throw new IllegalArgumentException();
 		}
+		else{
 		students[students.length-1]=student;
-
+		}
 		
 	}
 
@@ -112,10 +123,22 @@ public class StudentGroup implements StudentArrayOperation {
 		{
 			throw new IllegalArgumentException();
 		}
-		Student s=students[index];
-		students[index]=student;
-		//students[students.length-1]=s;
-
+		else
+		{
+			Student temp[] = new Student[students.length+1];
+			
+			for(int i=0;i<index;i++)
+			{
+				temp[i] = students[i];
+			}
+			temp[index] = student;
+			
+			for(int i=index+1;i<students.length+1;i++)
+			{
+				temp[i] = students[i];
+			}
+			students = null;
+		}
 	}
 
 	@Override
