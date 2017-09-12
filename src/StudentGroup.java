@@ -319,11 +319,6 @@ public class StudentGroup implements StudentArrayOperation {
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
 
-		for(int i=0;i<students.length;i++)
-		{
-			
-		}
-		
 		return null;
 	}
 
