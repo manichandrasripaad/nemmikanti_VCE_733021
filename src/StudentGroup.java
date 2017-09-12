@@ -112,9 +112,9 @@ public class StudentGroup implements StudentArrayOperation {
 		{
 			throw new IllegalArgumentException();
 		}
-		Student s=students[index];
+		//Student s=students[index];
 		students[index]=student;
-		students[students.length-1]=s;
+		//students[students.length-1]=s;
 
 	}
 
