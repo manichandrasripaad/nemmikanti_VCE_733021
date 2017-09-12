@@ -8,7 +8,7 @@ import java.util.Date;
  * or hashCode() method
  * 
  */
-public class Student implements Comparable<Object> {
+public class Student implements Comparable {
 
 	/**
 	 * student id
@@ -84,6 +84,7 @@ public class Student implements Comparable<Object> {
 	/**
 	 * DO NOT change this method it will be used during the task check
 	 */
+	@Override
 	public int compareTo(Object o) {
 		Student other = (Student) o;
 		return (this.fullName.compareTo(other.fullName));
