@@ -13,7 +13,7 @@ public class Main {
 		StudentGroup sg=new StudentGroup(2);
 		sg.setStudent(o1,0);
 		sg.setStudent(o2,1);
-		sg.removeFromIndex(0);
+		sg.bubbleSort();
 		
 	//	sg.remove(1);
 	
