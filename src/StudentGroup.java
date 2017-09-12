@@ -262,16 +262,17 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		else
 		{
-			Student s[] = new Student[students.length-index-1];
-			int k=0;
+			Student temp[] = new Student[students.length-index-1];
+			int c=0;
 			for(int i=index;i<students.length;i++)
 			{
-				s[k] = students[i]; k++;
+				temp[c] = students[i]; 
+				c++;
 			}
 			
             students = null;
 			
-			students = s;
+			students = temp;
 			
 		}
 		
@@ -286,26 +287,27 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		else
 		{
-			int ind=0;
-			for(ind=0;ind<students.length;ind++)
+			int i=0;
+			for(i=0;i<students.length;i++)
 			{
-				if(students[ind] == student)
+				if(students[i] == student)
 				{
 					break;
 				}
 			}
 			
 			
-			Student s[] = new Student[students.length-ind-1];
-			int k=0;
-			for(int i=ind;i<students.length;i++)
+			Student temp[] = new Student[students.length-i-1];
+			int c=0;
+			for(int j=i;j<students.length;j++)
 			{
-				s[k] = students[i]; k++;
+				temp[c] = students[i]; 
+				c++;
 			}
 			
             students = null;
 			
-			students = s;
+			students = temp;
 			
 		}
 	}
@@ -342,18 +344,18 @@ public class StudentGroup implements StudentArrayOperation {
 				}
 			}
 			
-			Student s[] = new Student[length];
-			int k=0;
+			Student temp[] = new Student[length];
+			int c=0;
 			for(int i=0;i<students.length;i++)
 			{
 				if(students[i].getBirthDate().before(date))
 				{
-					s[k] = students[i];
-					k++;
+					temp[c] = students[i];
+					c++;
 				}
 			}
 			
-		return s;
+		return temp;
 	}
 
 	@Override
@@ -372,18 +374,18 @@ public class StudentGroup implements StudentArrayOperation {
 				}
 			}
 			
-			Student s[] = new Student[length];
-			int k=0;
+			Student temp[] = new Student[length];
+			int c=0;
 			for(int i=0;i<students.length;i++)
 			{
 				if(students[i].getBirthDate().after(firstDate) && students[i].getBirthDate().before(lastDate) )
 				{
-					s[k] = students[i];
-					k++;
+					temp[c] = students[i];
+					c++;
 				}
 			}
 			
-		return s;
+		return temp;
 	}
 
 	@Override
@@ -394,10 +396,12 @@ public class StudentGroup implements StudentArrayOperation {
 			throw new IllegalArgumentException();
 		
 		Date d1=new Date(date.getDate()+days);
-		//	Date d2=new Date(date.getDate()-days);
 			int c=0,c1=0;
 			if(date==null)
+			{	
 				throw new IllegalArgumentException();
+			
+			}
 			for(int i=0;i<students.length;i++){
 				if(students[i].getBirthDate()==date || students[i].getBirthDate()==d1 ){
 					c++;
