@@ -246,7 +246,6 @@ public class StudentGroup implements StudentArrayOperation {
 				temp[j] = students[j];
 			}
             students = null;
-			
 			students = temp;
 			
 			
@@ -271,7 +270,6 @@ public class StudentGroup implements StudentArrayOperation {
 			}
 			
             students = null;
-			
 			students = temp;
 			
 		}
@@ -306,8 +304,7 @@ public class StudentGroup implements StudentArrayOperation {
 			}
 			
             students = null;
-			
-			students = temp;
+		    students = temp;
 			
 		}
 	}
@@ -395,26 +392,22 @@ public class StudentGroup implements StudentArrayOperation {
 		if(date==null)
 			throw new IllegalArgumentException();
 		
+		@SuppressWarnings("deprecation")
 		Date d1=new Date(date.getDate()+days);
 			int c=0,c1=0;
-			if(date==null)
-			{	
-				throw new IllegalArgumentException();
-			
-			}
 			for(int i=0;i<students.length;i++){
 				if(students[i].getBirthDate()==date || students[i].getBirthDate()==d1 ){
 					c++;
 				}
 			}
-			Student[] s =  new Student[c];
+			Student[] temp =  new Student[c];
 			for(int i=0;i<students.length;i++){
 				if(students[i].getBirthDate()==date || students[i].getBirthDate()==d1 ){
-					s[c1]=students[i];
+					temp[c1]=students[i];
 					c1++;
 				}
 			}
-			return s;
+			return temp;
 		
 	}
 
@@ -432,26 +425,26 @@ public class StudentGroup implements StudentArrayOperation {
 	public Student[] getStudentsByAge(int age) {
 		// Add your implementation here
 		
-		int cnt=0;
+		int c=0;
 		for(int i=0;i<students.length;i++)
 		{
 			int age1=this.getCurrentAgeByDate(i);
 			if(age1==age)
 			{
-				cnt++;
+				c++;
 			}
 		}
-		Student[] s=new Student[cnt];
-		cnt=0;
+		Student[] temp=new Student[c];
+		c=0;
 		for(int i=0;i<students.length;i++)
 		{
 			int age1=this.getCurrentAgeByDate(i);
 			if(age1==age)
 			{
-				s[i]=students[i];
+				temp[i]=students[i];
 			}
 		}
-		return s;
+		return temp;
 	}
 
 	@Override
